@@ -1,0 +1,1482 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/10/2026 3:23:30 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DHANUSHRII-SJ"
+  DTS:CreatorName="AzureAD\DhanushriiSJ"
+  DTS:DTSID="{F3C698FC-51ED-4673-B5EA-C3DE556D45E0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{C6F62D91-EE85-480E-903C-A2B8FE98F32E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[combine data.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{DEA17609-520F-4817-992D-995BF155F769}"
+      DTS:ObjectName="combine data.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\code files\combine data.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DHANUSHRII-SJ.casestudy]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{69A9E0F1-307E-4692-AA1C-3A5BAD9FA760}"
+      DTS:ObjectName="DHANUSHRII-SJ.casestudy">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DHANUSHRII-SJ;Initial Catalog=casestudy;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{69A9E0F1-307E-4692-AA1C-3A5BAD9FA760}DHANUSHRII-SJ.casestudy;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4C296D4C-8465-4DEE-9BAD-1E55F7C7C02B}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\Files Needed\partner_data.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{12CA761C-8545-418E-8CFB-9936A76C16D0}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\Files Needed\location.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="partner code"
+              DTS:DTSID="{9547F9D1-043C-457B-89CA-18B4F6596F5D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="location"
+              DTS:DTSID="{9667F09B-10F8-483F-BFF9-63DF2442ED7C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[transform and load.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{B0CF3E6F-C23F-409E-834D-3E6FBFAD6E06}"
+      DTS:ObjectName="transform and load.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\code files\transform and load.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B8CD4134-59AC-45D6-A42C-0D854A8BB317}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{69A9E0F1-307E-4692-AA1C-3A5BAD9FA760}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE PartnerCode;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{94bc436c-8bdb-4a70-9e9f-68572eaea917}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{69A9E0F1-307E-4692-AA1C-3A5BAD9FA760}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Location;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\final table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3cd7080d-066f-4098-8b16-310211d207e6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="final table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{69A9E0F1-307E-4692-AA1C-3A5BAD9FA760}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="transform and load.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\import data from email"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{CB0DA4F2-2413-43A5-9295-AED5378A48CA}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="import data from email"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Users\DhanushriiSJ\AppData\Local\Programs\Python\Python314\python.exe"
+          Arguments="C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\code files\email data.py"
+          WorkingDirectory="C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\code files\" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\import data from sftp"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{a13d9b90-9c93-4b0e-b7d6-b68be2de3df3}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="import data from sftp"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Users\DhanushriiSJ\AppData\Local\Programs\Python\Python314\python.exe"
+          Arguments="&quot;C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\code files\sftp data.py&quot;"
+          WorkingDirectory="C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\code files" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import dim data 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{406F7BEA-F0EB-45C0-8DFF-9E3CE5119F98}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import dim data 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import dim data 1\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import dim data 1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import dim data 1\Data Conversion.Inputs[Data Conversion Input].Columns[partner code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="partner code"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[partner code]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import dim data 1\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import dim data 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of partner code]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import dim data 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of partner code]"
+                      name="Copy of partner code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[partner code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import dim data 1\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import dim data 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import dim data 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import dim data 1\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Data$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import dim data 1\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[partner code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].ExternalColumns[partner code]"
+                      length="255"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[partner code]"
+                      name="partner code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[distributor name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].ExternalColumns[distributor name]"
+                      length="255"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[distributor name]"
+                      name="distributor name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[mode of communication]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].ExternalColumns[mode of communication]"
+                      length="255"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[mode of communication]"
+                      name="mode of communication"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].ExternalColumns[partner code]"
+                      dataType="wstr"
+                      length="255"
+                      name="partner code" />
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].ExternalColumns[distributor name]"
+                      dataType="wstr"
+                      length="255"
+                      name="distributor name" />
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].ExternalColumns[mode of communication]"
+                      dataType="wstr"
+                      length="255"
+                      name="mode of communication" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[partner code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[partner code]"
+                      name="partner code" />
+                    <outputColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[distributor name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[distributor name]"
+                      name="distributor name" />
+                    <outputColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[mode of communication]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[mode of communication]"
+                      name="mode of communication" />
+                    <outputColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import dim data 1\Save as Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Save as Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[PartnerCode]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import dim data 1\Save as Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DHANUSHRII-SJ.casestudy]"
+                  connectionManagerRefId="Package.ConnectionManagers[DHANUSHRII-SJ.casestudy]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input].Columns[partner code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="partner code"
+                      externalMetadataColumnId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[partner code]"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[partner code]" />
+                    <inputColumn
+                      refId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input].Columns[distributor name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="distributor name"
+                      externalMetadataColumnId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[distributor name]"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[distributor name]" />
+                    <inputColumn
+                      refId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input].Columns[mode of communication]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mode of communication"
+                      externalMetadataColumnId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[mode of communication]"
+                      lineageId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output].Columns[mode of communication]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[partner code]"
+                      dataType="i8"
+                      name="partner code" />
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[distributor name]"
+                      dataType="wstr"
+                      length="255"
+                      name="distributor name" />
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[mode of communication]"
+                      dataType="wstr"
+                      length="255"
+                      name="mode of communication" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import dim data 1\Save as Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 1\Save as Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 1\Save as Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import dim data 1\Save as Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 1\Save as Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import dim data 1.Paths[Data Conversion Output]"
+              endId="Package\Import dim data 1\Save as Table.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Import dim data 1\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Import dim data 1.Paths[Excel Source Output]"
+              endId="Package\Import dim data 1\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Import dim data 1\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import dim data 2"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{180ab64b-8aae-4735-a84a-0ac0fc8d7e21}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import dim data 2"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import dim data 2\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import dim data 2\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import dim data 2\Data Conversion.Inputs[Data Conversion Input].Columns[location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="location"
+                      lineageId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].Columns[location]" />
+                    <inputColumn
+                      refId="Package\Import dim data 2\Data Conversion.Inputs[Data Conversion Input].Columns[partner code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="partner code"
+                      lineageId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].Columns[partner code]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import dim data 2\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location]"
+                      name="Copy of location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].Columns[location]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of partner code]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of partner code]"
+                      name="Copy of partner code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].Columns[partner code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import dim data 2\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import dim data 2\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="16393"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import dim data 2\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].Columns[partner code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[partner code]"
+                      length="50"
+                      lineageId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].Columns[partner code]"
+                      name="partner code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].Columns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      length="50"
+                      lineageId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].Columns[location]"
+                      name="location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[partner code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="partner code" />
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import dim data 2\Save as Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Save as Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Location]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import dim data 2\Save as Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DHANUSHRII-SJ.casestudy]"
+                  connectionManagerRefId="Package.ConnectionManagers[DHANUSHRII-SJ.casestudy]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import dim data 2\Save as Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import dim data 2\Save as Table.Inputs[OLE DB Destination Input].Columns[Copy of location]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of location"
+                      externalMetadataColumnId="Package\Import dim data 2\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[Copy of location]"
+                      lineageId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of location]" />
+                    <inputColumn
+                      refId="Package\Import dim data 2\Save as Table.Inputs[OLE DB Destination Input].Columns[Copy of partner code]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of partner code"
+                      externalMetadataColumnId="Package\Import dim data 2\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[partner code]"
+                      lineageId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of partner code]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 2\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[partner code]"
+                      dataType="i8"
+                      name="partner code" />
+                    <externalMetadataColumn
+                      refId="Package\Import dim data 2\Save as Table.Inputs[OLE DB Destination Input].ExternalColumns[Copy of location]"
+                      dataType="wstr"
+                      length="255"
+                      name="Copy of location" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import dim data 2\Save as Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import dim data 2\Save as Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import dim data 2\Save as Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 2\Save as Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import dim data 2\Save as Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import dim data 2\Save as Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import dim data 2.Paths[Data Conversion Output]"
+              endId="Package\Import dim data 2\Save as Table.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Import dim data 2\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Import dim data 2.Paths[Flat File Source Output]"
+              endId="Package\Import dim data 2\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Import dim data 2\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\send error data"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{a7d81555-739f-4d1f-863d-9980dd65eff9}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="send error data"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Users\DhanushriiSJ\AppData\Local\Programs\Python\Python314\python.exe"
+          Arguments="&quot;C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\code files\send error data.py&quot;"
+          WorkingDirectory="C:\Users\DhanushriiSJ\Desktop\Training\SSIS\Tasks\code files" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Staging table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8537C9D3-97E4-4F4A-B009-FCBD5BC460AE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Staging table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{69A9E0F1-307E-4692-AA1C-3A5BAD9FA760}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="combine data.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E4A9DDC6-1DF0-4271-996C-A1E703870F96}"
+      DTS:From="Package\Import dim data 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\import data from email" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AA3A9191-2FB6-4092-B0F3-6357F7E5A444}"
+      DTS:From="Package\Execute SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Import dim data 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{5393CBC8-E007-4A93-9893-66F6312734A9}"
+      DTS:From="Package\Import dim data 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\import data from email" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{D70F8E61-DDCC-4766-9B56-D9CCB37B693F}"
+      DTS:From="Package\Execute SQL Task 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Import dim data 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{A36208DA-AAED-4CF5-A26F-2F97C6922FBD}"
+      DTS:From="Package\import data from email"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\import data from sftp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{232558C1-981C-47F6-987A-2B38FF8D4125}"
+      DTS:From="Package\import data from sftp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Staging table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{DB10A636-6E59-4ACC-9981-0D630996AA08}"
+      DTS:From="Package\Staging table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\final table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{BA017C15-71F8-49AD-B580-38D0D73D6B9C}"
+      DTS:From="Package\final table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\send error data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Execute SQL Task 1"
+          TopLeft="287.142857754109,202.647058645901" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Execute SQL Task 2"
+          TopLeft="535.714286854681,205.59999990884" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Import dim data 1"
+          TopLeft="287.857143469915,287.529411512675" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Import dim data 2"
+          TopLeft="538.571429717906,287.529411512675" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\import data from email"
+          TopLeft="394.761905602249,393.568627106002" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\send error data"
+          TopLeft="418.392858033505,758.715685609466" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="371.500000612012,244.247058645901">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.282352866774"
+              Start="0,0"
+              End="0,35.782352866774">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.782352866774" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="621.142858286293,247.19999990884">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.3294116038352"
+              Start="0,0"
+              End="0,32.8294116038352">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8294116038352" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Staging table"
+          TopLeft="423.095238995897,582.196077921055" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\import data from sftp"
+          TopLeft="400.714286567301,486.352940750163" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="369.857143469915,329.129411512675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88.3714287990007,64.439215593327"
+              Start="0,0"
+              End="88.3714287990007,56.939215593327">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.3344780423281" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.3344780423281"
+                    Point2="0,38.3344780423281"
+                    Point3="4,38.3344780423281" />
+                  <mssgle:LineSegment
+                    End="84.3714287990007,38.3344780423281" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84.3714287990007,38.3344780423281"
+                    Point2="88.3714287990007,38.3344780423281"
+                    Point3="88.3714287990007,42.3344780423281" />
+                  <mssgle:LineSegment
+                    End="88.3714287990007,56.939215593327" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="620.571429717906,329.129411512675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-102.876190782324,64.439215593327"
+              Start="0,0"
+              End="-102.876190782324,56.939215593327">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.3344780423281" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.3344780423281"
+                    Point2="0,38.3344780423281"
+                    Point3="-4,38.3344780423281" />
+                  <mssgle:LineSegment
+                    End="-98.8761907823235,38.3344780423281" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-98.8761907823235,38.3344780423281"
+                    Point2="-102.876190782324,38.3344780423281"
+                    Point3="-102.876190782324,42.3344780423281" />
+                  <mssgle:LineSegment
+                    End="-102.876190782324,56.939215593327" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="489.138096084775,435.168627106002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.1843136441613"
+              Start="0,0"
+              End="0,43.6843136441613">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6843136441613" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\final table"
+          TopLeft="432.142858062776,666.568626866707" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="493.819048529336,623.796077921055">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.772548945652"
+              Start="0,0"
+              End="0,35.272548945652">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.272548945652" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="494.26785804814,708.168626866707">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.5470587427594"
+              Start="0,0"
+              End="0,43.0470587427594">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.0470587427594" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="491.704762781599,527.952940750163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.2431371708916"
+              Start="0,0"
+              End="0,46.7431371708916">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.7431371708916" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import dim data 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Import dim data 1\Save as Table"
+          TopLeft="69.9999998509884,224.117645792998" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Import dim data 1\Excel Source"
+          TopLeft="65.0000000106437,60" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Import dim data 1\Data Conversion"
+          TopLeft="64.9999990314244,138.999997928739" />
+        <EdgeLayout
+          Id="Package\Import dim data 1.Paths[Excel Source Output]"
+          TopLeft="138.799999521034,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.3999979287386"
+              Start="0,0"
+              End="0,29.8999979287386">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8999979287386" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import dim data 1.Paths[Data Conversion Output]"
+          TopLeft="142.299999441206,180.599997928739">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5176478642596"
+              Start="0,0"
+              End="0,36.0176478642596">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.0176478642596" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import dim data 1\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import dim data 1\Save as Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Import dim data 2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Import dim data 2\Flat File Source"
+          TopLeft="196.999997064471,76.9999988526106" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Import dim data 2\Data Conversion"
+          TopLeft="200.999997004867,163.99999755621" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Import dim data 2\Save as Table"
+          TopLeft="200.999997004867,251.999996244907" />
+        <EdgeLayout
+          Id="Package\Import dim data 2.Paths[Flat File Source Output]"
+          TopLeft="275.399997034669,118.599998852611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.399998703599"
+              Start="0,0"
+              End="0,37.899998703599">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.899998703599" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import dim data 2.Paths[Data Conversion Output]"
+          TopLeft="275.799997004867,205.59999755621">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.3999986886978"
+              Start="0,0"
+              End="0,38.8999986886978">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8999986886978" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import dim data 2\Save as Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
