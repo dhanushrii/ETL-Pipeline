@@ -15,7 +15,7 @@ Ingestion (Email/SFTP) → Raw Tables → Staging Table → Validation → Final
 
 ## Architecture Diagram
 <p align="center">
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/b4884069-483e-4b6e-bad9-94b3198e4ff1" />
+<img width="500" height="600" alt="image" src="https://github.com/user-attachments/assets/b4884069-483e-4b6e-bad9-94b3198e4ff1" />
 
 ## Tech Stack
 - SQL Server (CTEs, window functions)
