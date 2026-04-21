@@ -6,8 +6,9 @@ An end-to-end ETL pipeline that ingests distributor data from Email (IMAP) and S
 ## Features
 - Multi-source ingestion (Email/IMAP + SFTP) supporting CSV, Excel and TXT
 - Dynamic schema normalization across heterogeneous source files
-- Data cleaning and deduplication using SQL window functions
+- Data cleaning including trimming, datatype conversion, and deduplication using SQL window functions  
 - Row-level validation: null checks, datatype mismatches, business rules and master data validation
+- Data segregation into validated (final) and rejected (error) records with detailed messages
 - Automated error reporting with mode-based routing (Email, SFTP)
 
 ## Pipeline Flow
